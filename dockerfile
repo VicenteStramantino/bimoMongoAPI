@@ -1,14 +1,13 @@
 #
-#Build Package
+# Build Package
 #
 FROM maven:4.0.0-openjdk-17 AS build
 COPY . .
 RUN mvn clean package -DskipTests
 
 #
-#Package State
+# Package State
 #
-
 FROM openjdk:17-jdk-slim
 COPY --from=build /target/bimoMongoAPI-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
