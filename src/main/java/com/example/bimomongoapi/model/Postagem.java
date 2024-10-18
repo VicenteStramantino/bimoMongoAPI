@@ -13,6 +13,8 @@ public class Postagem {
     private String cTexto;
     private String cImgFirebase;
 
+    private int iCurtidas;
+
 
     public Postagem(String id, int sID, int iIdUsuario, String cTexto, String cImgFirebase) {
         this.id = id;
@@ -20,6 +22,7 @@ public class Postagem {
         this.iIdUsuario = iIdUsuario;
         this.cTexto = cTexto;
         this.cImgFirebase = cImgFirebase;
+        this.iCurtidas = 0;
     }
 
     public String getId() {
@@ -62,5 +65,11 @@ public class Postagem {
         this.cImgFirebase = cImgFirebase;
     }
 
+    public int getiCurtidas() {
+        return iCurtidas;
+    }
 
+    public void setiCurtidas(int iCurtidas) {
+        this.iCurtidas = iCurtidas;
+    }
 }

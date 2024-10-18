@@ -26,11 +26,10 @@ public class PostagemController {
         return postagemService.buscarTodas();
     }
 
-
     @PostMapping("/inserir")
-    @Operation(summary = "Inserir uma nova curtida")
+    @Operation(summary = "Inserir uma nova postagem")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Curtida inserida com sucesso"),
+            @ApiResponse(responseCode = "200", description = "Postagem inserida com sucesso"),
             @ApiResponse(responseCode = "500", description = "Erro no servidor")
     })
     public Postagem inserir(@RequestBody Postagem postagem) {
@@ -38,12 +37,22 @@ public class PostagemController {
     }
 
     @DeleteMapping("/deletar/{id}")
-    @Operation(summary = "Deletar uma curtida")
+    @Operation(summary = "Deletar uma postagem")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = " deletada com sucesso"),
+            @ApiResponse(responseCode = "200", description = "Postagem deletada com sucesso"),
             @ApiResponse(responseCode = "404", description = "Postagem não encontrada")
     })
     public void deletar(@PathVariable String id) {
         postagemService.deletar(id);
+    }
+
+    @PutMapping("/curtir/{id}")
+    @Operation(summary = "Curtir uma postagem")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Postagem curtida com sucesso"),
+            @ApiResponse(responseCode = "404", description = "Postagem não encontrada")
+    })
+    public Postagem curtirPostagem(@PathVariable String id) {
+        return postagemService.curtirPostagem(id);
     }
 }
