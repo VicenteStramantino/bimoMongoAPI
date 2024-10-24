@@ -38,4 +38,16 @@ public class PostagemService {
             throw new RuntimeException("Postagem não encontrada com ID: " + id);
         }
     }
+
+    public Postagem descurtir(String id) {
+        Optional<Postagem> postagemOptional = postagemRepository.findById(id);
+
+        if (postagemOptional.isPresent()) {
+            Postagem postagem = postagemOptional.get();
+            postagem.setiCurtidas(postagem.getiCurtidas() - 1);
+            return postagemRepository.save(postagem);
+        } else {
+            throw new RuntimeException("Postagem não encontrada com ID: " + id);
+        }
+    }
 }

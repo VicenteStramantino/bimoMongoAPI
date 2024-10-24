@@ -55,4 +55,14 @@ public class PostagemController {
     public Postagem curtirPostagem(@PathVariable String id) {
         return postagemService.curtirPostagem(id);
     }
+
+    @PutMapping("/descurtir/{id}")
+    @Operation(summary = "Descurtir uma postagem")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Postagem descurtida com sucesso"),
+            @ApiResponse(responseCode = "404", description = "Postagem não encontrada")
+    })
+    public Postagem descurtirPostagem(@PathVariable String id) {
+        return postagemService.descurtir(id);
+    }
 }

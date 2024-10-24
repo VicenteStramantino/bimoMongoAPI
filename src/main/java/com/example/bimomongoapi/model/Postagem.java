@@ -17,7 +17,6 @@ public class Postagem {
 
 
     public Postagem(String id, int sID, int iIdUsuario, String cTexto, String cImgFirebase) {
-        this.id = id;
         this.sID = sID;
         this.iIdUsuario = iIdUsuario;
         this.cTexto = cTexto;
