@@ -8,7 +8,7 @@ public class Postagem {
 
     @Id
     private String id;
-    private int sID;
+    private String cID;
     private int iIdUsuario;
     private String cTexto;
     private String cImgFirebase;
@@ -16,8 +16,8 @@ public class Postagem {
     private int iCurtidas;
 
 
-    public Postagem(String id, int sID, int iIdUsuario, String cTexto, String cImgFirebase) {
-        this.sID = sID;
+    public Postagem(String cID, int iIdUsuario, String cTexto, String cImgFirebase) {
+        this.cID = cID;
         this.iIdUsuario = iIdUsuario;
         this.cTexto = cTexto;
         this.cImgFirebase = cImgFirebase;
@@ -32,12 +32,12 @@ public class Postagem {
         this.id = id;
     }
 
-    public int getsID() {
-        return sID;
+    public String getcID() {
+        return cID;
     }
 
-    public void setsID(int sID) {
-        this.sID = sID;
+    public void setsID(String cID) {
+        this.cID = cID;
     }
 
     public int getiIdUsuario() {
