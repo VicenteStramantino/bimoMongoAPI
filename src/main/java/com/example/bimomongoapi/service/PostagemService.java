@@ -28,7 +28,7 @@ public class PostagemService {
     }
 
     public Postagem curtirPostagem(String id) {
-        Optional<Postagem> postagemOptional = postagemRepository.findById(id);
+        Optional<Postagem> postagemOptional = postagemRepository.findByCID(id);
 
         if (postagemOptional.isPresent()) {
             Postagem postagem = postagemOptional.get();
@@ -40,7 +40,7 @@ public class PostagemService {
     }
 
     public Postagem descurtir(String id) {
-        Optional<Postagem> postagemOptional = postagemRepository.findById(id);
+        Optional<Postagem> postagemOptional = postagemRepository.findByCID(id);
 
         if (postagemOptional.isPresent()) {
             Postagem postagem = postagemOptional.get();
